@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      /* Quick inline styling to turn links into clean buttons */
+      .nav-buttons {
+        margin-top: 20px;
+        display: flex;
+        gap: 15px;
+      }
+      .btn-nav {
+        display: inline-block;
+        padding: 10px 20px;
+        color: white !important;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: opacity 0.2s ease;
+      }
+      .btn-nav:hover {
+        opacity: 0.9;
+      }
+      .btn-blue { background-color: #00B7FF; }
+      .btn-green { background-color: #2ecc71; }
+    </style>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    
+    <!-- Navigation Options -->
+    <div class="nav-buttons">
+      <a href="/login" class="btn-nav btn-blue">Login</a>
+      <a href="/register" class="btn-nav btn-green">Register</a>
+    </div>
+
+  </body>
+</html>

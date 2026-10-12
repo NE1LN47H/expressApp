@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <!-- Error Alert Block -->
+    <% if (locals.error) { %>
+      <div style="color: #721c24; background-color: #f8d7da; padding: 10px; border-radius: 4px; margin-bottom: 20px; max-width: 350px;">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <!-- Success Alert Block (Useful if redirected here with a message) -->
+    <% if (locals.success) { %>
+      <div style="color: #155724; background-color: #d4edda; padding: 10px; border-radius: 4px; margin-bottom: 20px; max-width: 350px;">
+        <%= success %>
+      </div>
+    <% } %>
+
+    <div class="login-container">
+      <h2>Login</h2>
+      <!-- Action points directly to your login-user POST route -->
+      <form action="/login" method="POST">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+
+  </body>
+</html>

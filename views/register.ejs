@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Fallback default if title is missing -->
+    <title><%= locals.title ? title : 'Register' %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Register</h1>
+    <p>Create a new account</p>
+
+    <!-- 1. Loop through and display express-validator errors if they exist -->
+    <% if (locals.errors && errors.length > 0) { %>
+      <div style="color: #721c24; background-color: #f8d7da; padding: 10px; border-radius: 4px; margin-bottom: 20px; max-width: 350px;">
+        <ul style="margin: 0; padding-left: 20px;">
+          <% errors.forEach(function(err) { %>
+            <li><%= err.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <!-- 2. Display success message if it exists -->
+    <% if (locals.message) { %>
+      <div style="color: #155724; background-color: #d4edda; padding: 10px; border-radius: 4px; margin-bottom: 20px; max-width: 350px;">
+        <%= message %>
+      </div>
+    <% } %>
+
+    <!-- Forms Wrapper -->
+    <div class="auth-wrapper">
+      
+      <!-- Register Form Section Only -->
+      <div class="auth-container">
+        <h2>Register</h2>
+        <!-- Form action hits your separate register router endpoint -->
+        <form action="/register" method="POST">
+
+          <div class="form-group">
+            <label for="reg-email">Email:</label>
+            <input type="email" id="reg-email" name="email" value="<%= locals.email ? email : '' %>" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="reg-password">Password:</label>
+            <input type="password" id="reg-password" name="password" required>
+          </div>
+          
+          <button type="submit" class="btn-secondary">Create Account</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Optional: Add a link back to your login view -->
+    <p style="margin-top: 20px;">Already have an account? <a href="/login">Login here</a></p>
+
+  </body>
+</html>
